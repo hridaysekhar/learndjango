@@ -1,0 +1,81 @@
+{% load static %}
+<title>IPLFFL2021</title>
+<meta name = "viewport" content = "width = device-width, initial-scale = 1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'ipl2021/css/matches.css' %}"/>
+<link rel="stylesheet" href="https://cdn.datatables.net/autofill/2.3.9/css/autoFill.dataTables.min.css">
+<script rel="stylesheet" href="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'home' %}"><h3-font>IPL2021-FFL</h3-font></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'matches' %}"><font>Match details</font></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link"href="{% url 'players' %}"><font>Players</font></a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ms-0">
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}"><font>Logout</font></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<main role="main">
+  <div class="container">
+    <div class="row my-5 ms-0">
+      <h1> <h3-font>Player Details  :</h3-font></h1>
+    </div>
+
+  <div class="row my-5 ms-0">
+    <div class="col-8">
+<table  class="table table-dark table-bordered" id="example"  cellspacing="0">
+  <thead>
+    <tr  class="d-flex">
+      <th class="col-2"><md-font>Rank</md-font></th>
+      <th class="col-3"><md-font>Name</md-font></th>
+      <th class="col-2"><md-font>Wins</md-font></th>
+      <th class="col-3"><md-font>Points</md-font></th>
+      <th class="col-2"><md-font>PG Used</md-font></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in details %}
+    <tr  class="d-flex">
+        <td class="col-2"><md-font>{{ item.0 }}</md-font></td>
+        <td class="col-3"><a href= "{{ item.1 }}"><md-font><u>{{ item.1 }}</u></md-font></a>
+        <td class="col-2"><md-font>{{ item.2 }}</md-font></td>
+        <td class="col-3"><md-font>{{ item.3 }}</md-font></td>
+        <td class="col-2"><md-font>{{ item.4 }}</md-font></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+      <div class="row">
+          <div class="col-sm-8 col-md-6 col-lg-4">
+  {% if details.has_previous %}
+    <a href="{% url 'players' %}?page={{ details.previous_page_number }}"><font>Previous</font></a>
+  {% endif %}
+          </div>
+        <div class="ml-5">
+  {% if details.has_next %}
+    <a href="{% url 'players' %}?page={{ details.next_page_number }}"><font>Next</font></a>
+  {% endif %}
+</div>
+          </div>
+      </div>
+    </div>
+</div>
+  </div>
+</main>

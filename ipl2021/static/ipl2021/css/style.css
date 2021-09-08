@@ -1,0 +1,36 @@
+body {
+      background-color:white;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+        overflow: hidden
+	}
+
+.header_site { background-color: #493D26; }
+font {
+        color:#C9BE62;
+        margin: auto 100px auto 60px;
+        font-family: "Times New Roman", Times, serif;
+       }
+.page-header,
+.page-header h1 {margin-top:0;margin-left:40;}
+
+/* unvisited link */
+a:link {
+  color: red;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
