@@ -1,0 +1,44 @@
+body {
+      background-color:#212529;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+        overflow: hidden
+	}
+
+.header_site { background-color: #493D26; }
+font {
+        color:#95B9C7;
+        font-size: 20px;
+        font-family: "Times New Roman", Times, serif;
+       }
+.page-header,
+.page-header h1 {margin-top:0;margin-left:40;}
+
+h3-font {
+        color:#D5D6EA;
+        font-family: "Times New Roman", Times, serif;
+        font-style: italic;
+        font-size: 35px;
+       }
+
+tb-font {
+        color:#D5D6EA;
+         font-family: "Perpetua Titling MT", serif;
+        font-style: italic;
+    font-size: 0.9vb;
+       }
+
+md-font {
+        color:#D5D6EA;
+        font-family: "Times New Roman", Times, serif;
+        font-style: italic;
+       }
+
+md1-font {
+        color:#D5D6EA;
+        font-family: "Times New Roman", Times, serif;
+       }
+
+html { overflow-y: scroll; overflow-x:hidden; }
+
